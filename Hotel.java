@@ -35,15 +35,15 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		this.NumOfRooms = Original.NumOfRooms;
 		this.NumOfClients = Original.NumOfClients;
 		
-		for(int i = 0; i < Original.Rooms.length ; i ++) {
+		for(int i = 0; i < Original.getNumOfRooms() ; i ++) {
 			this.Rooms[i] = Original.Rooms[i];
 		}
 		
-		for(int j = 0; j < Original.HotelEmployees.length; j++) {
+		for(int j = 0; j < Original.getNumOfEmployees(); j++) {
 			this.HotelEmployees[j] = Original.HotelEmployees[j];
 		}
 		
-		for(int k = 0 ; k < Original.Clients.length; k ++) {
+		for(int k = 0 ; k < Original.getNumOfClients(); k ++) {
 			this.Clients[k] = Original.Clients[k];
 		}
 		
@@ -181,7 +181,7 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 *  ----------------------------------------
 		 * */
 		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].equals(Room))
+			if(this.Rooms[i].getAddress().equals(Room.getAddress()))
 				return i;
 		}
 		

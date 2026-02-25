@@ -83,6 +83,23 @@ public class Manager extends HotelEmployee {
 		throw new IllegalArgumentException("not found!");
 	}
 	
+	public void removeEmployee(HotelEmployee Employee) {
+		boolean found = false;
+		for(int i = 0; i < this.getNumOfEmployees();i++) {
+			
+			if(this.Team[i].Equals(Employee)) {
+				this.Team[i] = this.Team[this.numOfEmployees - 1];
+				this.Team[this.numOfEmployees - 1] = null;
+				this.numOfEmployees--;
+				found = true;
+				System.out.println("Employee Removed!");
+				break;
+			}
+		}
+		
+		if(!found)
+			System.out.println("Employee not found!");
+	}
 	
 	public void addEmployeeToTeam(HotelEmployee Employee) {
 		if(this.getNumOfEmployees() < this.getTeamSize()) {
@@ -148,18 +165,7 @@ public class Manager extends HotelEmployee {
 		
 	}
 	
-	public void removeEmployee(HotelEmployee Employee) {
-		for(int i = 0; i < this.getNumOfEmployees();i++) {
-			
-			if(this.Team[i].Equals(Employee)) {
-				this.Team[i] = this.Team[this.numOfEmployees - 1];
-				this.Team[this.numOfEmployees - 1] = null;
-				this.numOfEmployees--;
-				break;
-			}
-			System.out.println("Employee not found!");
-		}
-	}
+	
 	
 	public String displayInfo() {
 		return ("Manager: " + this.getName() + ", Age: " + this.getAge() + ", Salary: " + this.getSalary() + ", Dept: " + this.getManagerDept() + ", Team Size: " + this.getTeamSize());

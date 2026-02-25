@@ -150,7 +150,7 @@ public abstract class Room {
 		 * Returns : String to be used in toString method
 		 * ----------------------------------------
 		 * */
-		return (this.getBeds() * nights * BedsPriceMultiplication) + (this.getBathrooms() * nights * BathroomBsPriceMutliplication) + (this.getKitchens() * nights * KitchensPriceMutliplication);
+		return (this.getPrice() * nights);
 	}
 	
 	@Override
