@@ -38,7 +38,7 @@ public class Studio extends Room{
 		 * Returns : String 
 		 * ----------------------------------------
 		 * */
-		return (super.displayInfo() + "Has GymAccess: " + this.getGymAccess());
+		return (super.displayInfo() + ", Has GymAccess: " + this.getGymAccess());
 	}
 	
 	

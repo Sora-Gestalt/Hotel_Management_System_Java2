@@ -17,7 +17,8 @@ public class Hotel implements MOMAH,HotelHRreqs {
 	
 	
 	// parameterized constructor
-	public Hotel(int HotelRoomsCapacity,int HotelEmployeesCapacity,int HotelClientsCapacity){
+	public Hotel(String name,int HotelRoomsCapacity,int HotelEmployeesCapacity,int HotelClientsCapacity){
+		this.setName(name);
 		Rooms = new Room[HotelRoomsCapacity];
 		HotelEmployees = new HotelEmployee[HotelEmployeesCapacity];
 		Clients = new Client[HotelClientsCapacity];
@@ -27,7 +28,7 @@ public class Hotel implements MOMAH,HotelHRreqs {
 	// copy constructor
 	
 	public Hotel(Hotel Original) {
-		
+		this.setName(Original.getName());
 		this.Rooms = new Room[Original.Rooms.length];
 		this.HotelEmployees = new HotelEmployee[Original.HotelEmployees.length];
 		this.Clients = new Client[Original.Clients.length];
@@ -330,7 +331,12 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 *  ----------------------------------------
 		 * */
 		for(int k = 0; k < this.NumOfEmployees ; k++) {
-			if(this.HotelEmployees[k].Equals(Employee)) {}
+			if(this.HotelEmployees[k].Equals(Employee)) {
+				this.HotelEmployees[k] = this.HotelEmployees[this.getNumOfEmployees() - 1];
+				this.HotelEmployees[this.getNumOfEmployees() - 1] = null;
+				this.NumOfEmployees--;
+				break;
+			}
 		}
 	}
 	
@@ -363,6 +369,7 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 * ----------------------------------------
 		 * */
 		System.out.println(this);
+		this.printHotelLicense();
 		System.out.println("| Rooms Info");
 		System.out.println("------------------------------------------------");
 		
@@ -385,6 +392,10 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		}
 		System.out.println("------------------------------------------------");
 		
+	}
+	
+	public void printHotelLicense() {
+		System.out.println("HTL-"+this.getName().substring(0,3) + "-" + this.Clients.length + this.HotelEmployees.length + this.Rooms.length);
 	}
 	
 }

@@ -29,7 +29,7 @@ public class Client implements Absher{
 	}
 	
 	public void setAge(int Age) {
-		if(this.isValidAge())
+		if(this.isValidAge(Age))
 			this.Age = Age;
 		else
 			System.out.println("Client Can't Book a Room due to Age Restrictions!");
@@ -56,7 +56,7 @@ public class Client implements Absher{
 	}
 	
 	// class related methods
-	public boolean isValidAge() {
+	public boolean isValidAge(int Age) {
 		/* ----------------------------------------
 		 * Abstract: this method check if Client's Age > AgeBoundary set by Absher System
 		 * 
@@ -66,7 +66,7 @@ public class Client implements Absher{
 		 * Returns : boolean
 		 *  ----------------------------------------
 		 * */
-		return this.Age > Absher.AgeBounary;
+		return Age > Absher.AgeBounary;
 	}
 	
 	public boolean Equals(Client Client) {

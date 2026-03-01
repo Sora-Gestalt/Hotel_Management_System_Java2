@@ -50,10 +50,11 @@ public class Reciptionest extends HotelEmployee {
 		 * 
 		 * Returns : String
 		 * */
+		String complete = "";
 		for(int i = 0; i < this.getNumOfLangs() ; i++) {
-			System.out.println("\nLanguage: " + this.languages[i]);
+			complete += ("\nLanguage: " + this.languages[i]);
 		}
-		return "";
+		return complete;
 	}
 	
 	
@@ -116,17 +117,21 @@ public class Reciptionest extends HotelEmployee {
 		 * 
 		 * Returns : void
 		 * */
+		boolean found = false;
 		for(int i = 0; i < this.getNumOfLangs() ; i++) {
 			if(this.languages[i].equalsIgnoreCase(Lang)) {
 				this.languages[i] = this.languages[this.NumOfLangs - 1];
 				this.languages[this.NumOfLangs - 1] = null;
 				this.NumOfLangs--;
 				System.out.println("Language Removed!");
+				found = true;
 				break;
 			}
 			
 		}
-		System.out.println("Language isn't found!");
+		
+		if(!found)
+			System.out.println("Language isn't found!");
 	}
 	
 	
