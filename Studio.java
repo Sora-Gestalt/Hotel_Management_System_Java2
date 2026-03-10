@@ -26,6 +26,13 @@ public class Studio extends Room{
 		return this.GymAccess;
 	}
 	
+	
+@Override
+	
+	public String getType() {
+		return "Studio";
+	}
+	
 	// class related methods
 	
 	public String displayInfo() {

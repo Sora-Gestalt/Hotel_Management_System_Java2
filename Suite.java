@@ -44,6 +44,12 @@ public class Suite extends Room {
 		return this.VipAccess;
 	}
 	
+@Override
+	
+	public String getType() {
+		return "Suite";
+	}
+	
 	
 	// class related methods
 	

@@ -23,14 +23,16 @@ public class Security extends HotelEmployee{
 	// setters
 	public void setSecuritySector(String Sector) {
 		String[] Choices = {"cyber security","VSS","PSIM"};
-		
+		boolean notCorrectChocie = true;
 		for(int i = 0; i < Choices.length ; i++) {
 			if(Choices[i].equalsIgnoreCase(Sector)) {
 				this.SecuritySector = Sector.toLowerCase();
+				notCorrectChocie = false;
 				break;
 			}
 		}
-		System.out.println("choices: cyber security,VSS,PSIM");
+		if(notCorrectChocie)
+			System.out.println("choices: cyber security,VSS,PSIM");
 	}
 	
 	// getters

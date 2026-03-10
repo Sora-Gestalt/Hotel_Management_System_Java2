@@ -1,0 +1,2354 @@
+---------------------------------
+Welcome
+Enter Hotel Name 
+Input =>: 
+a1231
+Invalid input. Please use letters and spaces only.
+Input =>: 
+231231
+Invalid input. Please use letters and spaces only.
+Input =>: 
+aaa
+Enter Rooms Capacity: 
+Input =>: 
+-1
+Invalid input, Please enter a positive integer
+Input =>: 
+0
+Invalid input, Please enter a positive integer
+Input =>: 
+20
+Enter Clients Capacity: 
+Input =>: 
+20
+Enter Employees Capacity: 
+Input =>: 
+20
+Creating Hotel!
+---------------------------------
+-------------------------------------------------------------------
+Hotel aaa Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+1
+Enter Hotel Name 
+Input =>: 
+GrandHotel
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 0, Number Of Employees: 0, Number Of Clients: 0
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+3
+Hotel: GrandHotel
+ Number Of Rooms: 0, Number Of Employees: 0, Number Of Clients: 0
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+4
+Revenue per night: 0
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+9
+No Rooms!
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+8
+No Employees
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+5
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+7
+number of clients is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+6
+number of clients or rooms is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+5
+number of clients or rooms is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+3
+number of clients is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+2
+number of clients is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+1
+Enter Client Name Input =>: 
+a21
+Invalid input. Please use letters and spaces only.
+Enter Client Name Input =>: 
+213
+Invalid input. Please use letters and spaces only.
+Enter Client Name Input =>: 
+Nawaf
+Enter Age Input =>: 
+15
+Age must be bigger than 18 according to ABSHER constrains!
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+1
+Enter Client Name Input =>: 
+Nawaf
+Enter Age Input =>: 
+20
+Is Violation Record Of The Client Clear ? ans(yes/no) Input =>: 
+YeS
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+7
+[0] Nawaf, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+Client Info| Name: Nawaf , Age: 20 , Clear Violation Record: true, Client Has 0 Rooms.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+2
+[0] Nawaf, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+Client Index in hotel: 0
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+3
+[0] Nawaf, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+Client Removed!
+Client has been removed
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+1
+Enter Client Name Input =>: 
+Fahad
+Enter Age Input =>: 
+20
+Is Violation Record Of The Client Clear ? ans(yes/no) Input =>: 
+no
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+1
+Enter Client Name Input =>: 
+Khalid
+Enter Age Input =>: 
+25
+Is Violation Record Of The Client Clear ? ans(yes/no) Input =>: 
+yes
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+8
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 0, Number Of Employees: 0, Number Of Clients: 2
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 0 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+5
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+1
+Enter Client Name Input =>: 
+Faris
+Enter Age Input =>: 
+54
+Is Violation Record Of The Client Clear ? ans(yes/no) Input =>: 
+yes
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+5
+number of clients or rooms is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+6
+number of clients or rooms is zero
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+8
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+7
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+1
+Enter Address Input =>: 
+a213
+Invalid input. Please use Digits only.
+Enter Address Input =>: 
+31231231
+Length must be 4
+Invalid input. Please use Digits only.
+Enter Address Input =>: 
+0001
+Enter Number of Beds Input =>: 
+-1
+Enter Number of Bathrooms Input =>: 
+23
+Enter Number of Kitchens Input =>: 
+2
+Beds,Bathrooms,Kitchens must be > 0
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+1
+Enter Address Input =>: 
+0001
+Enter Number of Beds Input =>: 
+1
+Enter Number of Bathrooms Input =>: 
+1
+Enter Number of Kitchens Input =>: 
+1
+Room created!
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+2
+Enter Address Input =>: 
+0001
+Not Unique Address
+Invalid input. Please use Digits only.
+Enter Address Input =>: 
+0002
+Enter Number of Beds Input =>: 
+2
+Enter Number of Bathrooms Input =>: 
+2
+Enter Number of Kitchens Input =>: 
+2
+Room created!
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+3
+Enter Address Input =>: 
+0003
+Enter Number of Beds Input =>: 
+3
+Enter Number of Bathrooms Input =>: 
+3
+Enter Number of Kitchens Input =>: 
+3
+Enter Number of Balconies Input =>: 
+3
+Room created!
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+3
+Enter Address Input =>: 
+0001
+Not Unique Address
+Invalid input. Please use Digits only.
+Enter Address Input =>: 
+0004
+Enter Number of Beds Input =>: 
+-1
+Enter Number of Bathrooms Input =>: 
+1-
+Invalid input. Please enter a number
+Enter Number of Bathrooms Input =>: 
+-1
+Enter Number of Kitchens Input =>: 
+-1
+Enter Number of Balconies Input =>: 
+-1
+Beds,Bathrooms,Kitchens,balconies must be > 0
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+4
+Enter Address Input =>: 
+0004
+Enter Number of Beds Input =>: 
+3
+Enter Number of Bathrooms Input =>: 
+3
+Enter Number of Kitchens Input =>: 
+3
+Enter Number of Balconies Input =>: 
+3
+Enter Number of Private Pools Input =>: 
+3
+Room created!
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+5
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+[3] 0004 Royal Suite
+Choose Room
+Input =>: 
+1
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+6
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+[3] 0004 Royal Suite
+Choose Room
+Input =>: 
+3
+Enter Number of Nights Input =>: 
+100
+Price: 450000
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+6
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+[3] 0004 Royal Suite
+Choose Room
+Input =>: 
+0
+Enter Number of Nights Input =>: 
+100
+Price: 100000
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+7
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 4, Number Of Employees: 0, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0001
+ Number of Beds: 1, Number of Bathrooms: 1, Number of Kitchens: 1 Has Public Pool Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0004
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+ Number Of Private Pools: 3
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 0 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+9
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+[3] 0004 Royal Suite
+Choose Room
+Input =>: 
+3
+Room Removed!
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 3, Number Of Employees: 0, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0001
+ Number of Beds: 1, Number of Bathrooms: 1, Number of Kitchens: 1 Has Public Pool Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 0 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+7
+-------------------------------------------------------------------
+[1] Create Standard Room
+[2] Create Studio Room
+[3] Create Suite Room
+[4] Create Royal Suite
+[5] Display Room Info
+[6] Calculate Room Price 
+[7] exit
+Input =>: 
+7
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+5
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+[0] Fahad, Number of Rooms: 0
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Success: Room 0001 assigned to Fahad.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+1
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Booking Denied: Room 0001 is already occupied by another client.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+2
+Success: Room 0003 assigned to Fahad.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+5
+[0] Fahad, Number of Rooms: 2
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+1
+Client does not own room: 0002
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+5
+[0] Fahad, Number of Rooms: 2
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+room removed!
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+4
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 0
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+1
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Success: Room 0001 assigned to Khalid.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+6
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 1
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Not Found!
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+6
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 1
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+1
+Not Found!
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+6
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 1
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+0
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+2
+Index of Room: Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+7
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 1
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+2
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+8
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 3, Number Of Employees: 0, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0001
+ Number of Beds: 1, Number of Bathrooms: 1, Number of Kitchens: 1 Has Public Pool Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 1 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+9
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Room 0001 belongs to client Khalid.
+Room can't be destroyed until removed by client.
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+5
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+5
+[0] Fahad, Number of Rooms: 1
+[1] Khalid, Number of Rooms: 1
+[2] Faris, Number of Rooms: 0
+Choose Client
+Input =>: 
+1
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+room removed!
+-------------------------------------------------------------------
+[1] Create & Add Client
+[2] Search Client
+[3] Remove Client
+[4] Add Room To Client
+[5] Remove Room From Client
+[6] Search Room of Client
+[7] Print Client's Info
+[8] exit
+Input =>: 
+8
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+9
+[0] 0001 Standard
+[1] 0002 Studio
+[2] 0003 Suite
+Choose Room
+Input =>: 
+0
+Room Removed!
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 0, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+4
+Revenue per night: 4000
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+1
+Enter Name Input =>: 
+Faisal
+Enter Age Input =>: 
+15
+Invalid Age, age must be bigger than 18
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+1
+Enter Name Input =>: 
+Faisal
+Enter Age Input =>: 
+43
+Enter Salary Input =>: 
+50000
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Enter Team Size Input =>: 
+10
+Invalid Size , must be between 10 and 0
+Enter Team Size Input =>: 
+9
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+1
+Enter Name Input =>: 
+Saud
+Enter Age Input =>: 
+23
+Enter Salary Input =>: 
+15000.0
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+2
+Enter Team Size Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+10
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Employee not found!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+9
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+1
+Chooses Dept and Manager's Dept are different
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Not Found!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+8
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Can't add the same manager to it's team
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+8
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+1
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+8
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+1
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+1
+Duplicated Employee
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+11
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 2, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+5
+Enter Name Input =>: 
+feras
+Enter Age Input =>: 
+20
+Enter Salary Input =>: 
+5000.0
+Choose Section
+[1] Breakfast
+[2] Lunch
+[3] Dinner
+1
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+6
+No Reciptionests
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+7
+No Reciptionests
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+8
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+2
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+0
+Chooses Dept and Manager's Dept are different
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Index [1] Info: Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+Input the index [i] of the Manager =>: 
+1
+Choose Cook
+Index [2] Info: Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Input the index [i] of the Cook =>: 
+2
+Employee has been added to the team!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+11
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 3, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+ Team Member [0] Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+ Team Member [0] Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Manager: Saud, Age: 23, Salary: 15000.0, Dept: RESTURANT, Team Size: 6
+
+ Team Member [0] Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+8
+[0] Faisal, Salary: 50000.0
+[1] Saud, Salary: 15000.0
+[2] feras, Salary: 5000.0
+Choose Employee
+Input =>: 
+1
+Employee Removed!
+Unassigning manager's team...
+Team has been unassign
+Employee fully removed from system.
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 2, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+1
+Enter Name Input =>: 
+Ahmed
+Enter Age Input =>: 
+53
+Enter Salary Input =>: 
+20000
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+2
+Enter Team Size Input =>: 
+5
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+8
+Choose Section
+[1] Management of Managers
+[2] Resturant
+[3] Cleaning
+[4] Security
+[5] Rooms
+2
+Choose Manager
+Index [0] Info: Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Index [2] Info: Manager: Ahmed, Age: 53, Salary: 20000.0, Dept: RESTURANT, Team Size: 5
+
+Input the index [i] of the Manager =>: 
+2
+Choose Cook
+Index [1] Info: Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Input the index [i] of the Cook =>: 
+1
+Employee has been added to the team!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+11
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 3, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Faisal, Age: 43, Salary: 50000.0, Dept: EMPLOYEES, Team Size: 9
+
+Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Manager: Ahmed, Age: 53, Salary: 20000.0, Dept: RESTURANT, Team Size: 5
+
+ Team Member [0] Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+8
+[0] Faisal, Salary: 50000.0
+[1] feras, Salary: 5000.0
+[2] Ahmed, Salary: 20000.0
+Choose Employee
+Input =>: 
+0
+Unassigning manager's team...
+Team has been unassign
+Employee fully removed from system.
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+2
+Enter Name Input =>: 
+Fahad
+Enter Age nput =>: 
+53
+Enter Salary Input =>: 
+201231
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+6
+Choose Section
+[1] Arabic
+[2] English
+[3] French
+[4] Chinese
+[5] Japanese
+6
+Invalid Input!
+5
+Choose Section
+[1] Arabic
+[2] English
+[3] French
+[4] Chinese
+[5] Japanese
+5
+Choose Reciptionest:
+Index [2] Info: Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 0
+ Spoken Languages => 
+Input the index [i] of the Reciptionest =>: 
+2
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+7
+Choose Section
+[1] Arabic
+[2] English
+[3] French
+[4] Chinese
+[5] Japanese
+4
+Choose Reciptionest:
+Index [2] Info: Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 1
+ Spoken Languages => 
+Language: japanese
+Input the index [i] of the Reciptionest =>: 
+2
+Language isn't found!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+7
+Choose Section
+[1] Arabic
+[2] English
+[3] French
+[4] Chinese
+[5] Japanese
+5
+Choose Reciptionest:
+Index [2] Info: Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 1
+ Spoken Languages => 
+Language: japanese
+Input the index [i] of the Reciptionest =>: 
+2
+Language Removed!
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+11
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 3, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Ahmed, Age: 53, Salary: 20000.0, Dept: RESTURANT, Team Size: 5
+
+ Team Member [0] Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 0
+ Spoken Languages => 
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+6
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+6
+Choose Section
+[1] Arabic
+[2] English
+[3] French
+[4] Chinese
+[5] Japanese
+1
+Choose Reciptionest:
+Index [2] Info: Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 0
+ Spoken Languages => 
+Input the index [i] of the Reciptionest =>: 
+2
+-------------------------------------------------------------------
+[1] Create Manager
+[2] Create Reciptionest
+[3] Create Security
+[4] Create Cleaner
+[5] Create Cook
+[6] Add Language For Reciptionest 
+[7] Remove Language From Reciptionest
+[8] Add Member To Manager Team
+[9] Search Member of Manager Team
+[10] Remove Member From Manager Team
+[11] exit
+Input =>: 
+11
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+2
+Hotel: GrandHotel
+ Number Of Rooms: 2, Number Of Employees: 3, Number Of Clients: 3
+HTL-Gra-202020
+| Rooms Info
+------------------------------------------------
+Room: 0003
+ Number of Beds: 3, Number of Bathrooms: 3, Number of Kitchens: 3 Number of Balconies: 3 , Has Vip Access: true
+Room: 0002
+ Number of Beds: 2, Number of Bathrooms: 2, Number of Kitchens: 2, Has GymAccess: true
+------------------------------------------------
+
+
+
+ Clients Info
+------------------------------------------------
+Client Info| Name: Fahad , Age: 20 , Clear Violation Record: false, Client Has 1 Rooms.
+Client Info| Name: Khalid , Age: 25 , Clear Violation Record: true, Client Has 0 Rooms.
+Client Info| Name: Faris , Age: 54 , Clear Violation Record: true, Client Has 0 Rooms.
+------------------------------------------------
+
+
+
+ Employees Info
+------------------------------------------------
+Manager: Ahmed, Age: 53, Salary: 20000.0, Dept: RESTURANT, Team Size: 5
+
+ Team Member [0] Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Employee Info| Name: feras, Age: 20 , Salary: 5000.0 Working Time: breakfast
+Employee Info| Name: Fahad, Age: 53 , Salary: 201231.0 Number of Spoken Languages: 1
+ Spoken Languages => 
+Language: arabic
+------------------------------------------------
+-------------------------------------------------------------------
+Hotel GrandHotel Management System
+Welcome
+[1] set new name
+[2] display all information
+[3] display hotel information
+[4] get revenue
+[5] Clients Properties
+[6] Employees Properties
+[7] Rooms Properties
+[8] Kick Employee
+[9] Destroy Room
+[10] exit
+Input =>: 
+10
+Closing System....
+System closed!
