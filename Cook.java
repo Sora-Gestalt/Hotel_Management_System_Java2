@@ -26,13 +26,17 @@ public class Cook extends HotelEmployee {
 	// setters
 	public void setWorkingTime(String Time) {
 		String[] choices = {"breakfast","lunch","dinner"};
+		boolean notCorrectChoice = true;
 		for(int i = 0; i < choices.length ; i++) {
 			if(choices[i].equalsIgnoreCase(Time)) {
 				this.WorkingTime = Time.toLowerCase();
+				notCorrectChoice = false;
 				break;
 			}
 		}
-		System.out.println("choose : breakfast,lunch,dinner");
+		
+		if(notCorrectChoice)
+			System.out.println("choose : breakfast,lunch,dinner");
 	}
 	
 	// getters

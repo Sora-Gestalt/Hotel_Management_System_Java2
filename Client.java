@@ -7,34 +7,56 @@ public class Client implements Absher{
 	private boolean ClearViolationRecord;
 	private Room[] Rooms = new Room[3];
 	private int numOfRooms = 0;
-	
+
 	// constructors
-	
+
 	// parameterized constructor;
 	public Client(String Name,int Age,boolean ClearViolationRecord) {
 		this.setName(Name);
 		this.setAge(Age);
 		this.setViolationRecord(ClearViolationRecord);
 	}
-	
+
 	// copy constructor
-	public Client(Client Original) {}
-	
+	public Client(Client Original) {
+		this.setName(Original.getName());
+		this.setAge(Original.getAge());
+		this.setViolationRecord(Original.getViolationRecord());
+		this.numOfRooms = Original.getNumOfRooms();
+
+		for(int i = 0; i < Original.getNumOfRooms() ; i++) {
+			this.Rooms[i] = Original.Rooms[i];
+		}
+	}
+
 	// helping methods
-	
-	
+	private boolean isDuplicateRoom(Room room) {
+		/*
+		 * Abstract : this method helps method addRoom , it checks if the passed Room is a duplicate
+		 * 
+		 * Parameters : room : Room
+		 * 
+		 * Returns : boolean
+		 * */
+		for(int i = 0; i < this.getNumOfRooms() ; i++) {
+			if(this.Rooms[i].getAddress().equalsIgnoreCase(room.getAddress()))
+				return true;
+		}
+		return false;
+	}
+
 	// setters
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-	
+
 	public void setAge(int Age) {
-		if(this.isValidAge())
+		if(this.isValidAge(Age))
 			this.Age = Age;
 		else
 			System.out.println("Client Can't Book a Room due to Age Restrictions!");
 	}
-	
+
 	public void setViolationRecord(boolean isClear) {
 		this.ClearViolationRecord = isClear;
 	}
@@ -42,21 +64,21 @@ public class Client implements Absher{
 	public String getName() {
 		return this.Name;
 	}
-	
+
 	public int getAge() {
 		return this.Age;
 	}
-	
+
 	public boolean getViolationRecord() {
 		return this.ClearViolationRecord;
 	}
-	
+
 	public int getNumOfRooms() {
 		return this.numOfRooms;
 	}
-	
+
 	// class related methods
-	public boolean isValidAge() {
+	public boolean isValidAge(int Age) {
 		/* ----------------------------------------
 		 * Abstract: this method check if Client's Age > AgeBoundary set by Absher System
 		 * 
@@ -66,9 +88,9 @@ public class Client implements Absher{
 		 * Returns : boolean
 		 *  ----------------------------------------
 		 * */
-		return this.Age > Absher.AgeBounary;
+		return Age > Absher.AgeBounary;
 	}
-	
+
 	public boolean Equals(Client Client) {
 		/* ----------------------------------------
 		 * Abstract: this methods check if the invoker & input are equal
@@ -81,7 +103,7 @@ public class Client implements Absher{
 		 * */
 		return (this.getName().equals(Client.getName()) && this.getAge() == Client.getAge() && this.getViolationRecord() == Client.getViolationRecord() && this.getNumOfRooms() == Client.getNumOfRooms());
 	}
-	
+
 	public Room Search(Room Room) {
 		for(int i = 0; i < this.getNumOfRooms() ; i++) {
 			if(this.Rooms[i].equals(Room))
@@ -89,7 +111,7 @@ public class Client implements Absher{
 		}
 		throw new IllegalArgumentException("not Found");
 	}
-	
+
 	public void addRoom(Room Room) {
 		/* ----------------------------------------
 		 * Abstract: this methods adds a descendant of Room to Rooms list in instance of Client
@@ -100,12 +122,14 @@ public class Client implements Absher{
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		if(this.getNumOfRooms() < this.Rooms.length)
+		if(this.getNumOfRooms() < this.Rooms.length && !this.isDuplicateRoom(Room))
 			this.Rooms[this.numOfRooms++] = Room;
+		else
+			throw new IllegalArgumentException("Duplicated Room!");
 	}
-	
-	
-	
+
+
+
 	public void removeRoom(Room Room) {
 		/* ----------------------------------------
 		 * Abstract: this methods removes Room from Rooms in instance of Client
@@ -116,20 +140,34 @@ public class Client implements Absher{
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
+		boolean notfound = true;
 		for(int i = 0; i < this.getNumOfRooms() ; i++) {
 			if(this.Rooms[i].getAddress().equalsIgnoreCase(Room.getAddress())) {
 				this.Rooms[i] = this.Rooms[this.numOfRooms - 1];
 				this.Rooms[this.numOfRooms - 1] = null; // safe code practice ( to prevent garbage collector from freeing up memory )
 				this.numOfRooms--;
+				notfound = false;
 				break;
 			}
 		}
+		if(notfound)
+			throw new IllegalArgumentException("Client does not own room: " + Room.getAddress());
 	}
-	
-	
-	
-	
-	
+
+	public void releaseAllRooms() {
+		/*
+		 * Abstract: this methods deletes all rooms from client
+		 * 
+		 * Parameters: None
+		 * 
+		 * Returns: void
+		 * */
+
+		while(this.numOfRooms > 0)
+			this.removeRoom(this.Rooms[0]);
+	}
+
+
 	public String displayInfo() {
 		/*
 		 * ----------------------------------------
@@ -142,10 +180,10 @@ public class Client implements Absher{
 		 * */
 		return ("Client Info| Name: " + this.getName() + " , Age: " + this.getAge() + " , Clear Violation Record: " + this.getViolationRecord() + ", Client Has " + this.getNumOfRooms() + " Rooms.");
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.displayInfo();
 	}
-	
+
 }

@@ -26,6 +26,13 @@ public class Studio extends Room{
 		return this.GymAccess;
 	}
 	
+	
+@Override
+	
+	public String getType() {
+		return "Studio";
+	}
+	
 	// class related methods
 	
 	public String displayInfo() {
@@ -38,7 +45,7 @@ public class Studio extends Room{
 		 * Returns : String 
 		 * ----------------------------------------
 		 * */
-		return (super.displayInfo() + "Has GymAccess: " + this.getGymAccess());
+		return (super.displayInfo() + ", Has GymAccess: " + this.getGymAccess());
 	}
 	
 	

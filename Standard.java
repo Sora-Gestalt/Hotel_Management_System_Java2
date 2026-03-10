@@ -30,7 +30,11 @@ public class Standard extends Room{
 		return this.PublicPoolAccess;
 	}
 	
+@Override
 	
+	public String getType() {
+		return "Standard";
+	}
 	
 	// class related methods
 	

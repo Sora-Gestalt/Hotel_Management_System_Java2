@@ -38,6 +38,12 @@ public class RoyalSuite extends Suite{
 	}
 	
 	
+	@Override
+	
+	public String getType() {
+		return "Royal Suite";
+	}
+	
 	// class related methods
 	
 	public String displayInfo() {

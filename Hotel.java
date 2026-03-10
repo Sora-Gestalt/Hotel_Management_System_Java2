@@ -1,5 +1,7 @@
 package Projects;
 
+import java.math.*;
+
 public class Hotel implements MOMAH,HotelHRreqs {
 	// class attr
 	private String name;
@@ -11,13 +13,18 @@ public class Hotel implements MOMAH,HotelHRreqs {
 	private int NumOfEmployees;
 	private int NumOfClients;
 	
-	
-
+	private static int numOfEmployeesDeptManagers = 0;
+	private static int numOfSecurityDeptManagers = 0;
+	private static int numOfResturantDeptManagers = 0;
+	private static int numOfCleanerDeptManagers = 0;
+	private static int numOfRoomsDeptManagers = 0;
+	private static int numOfReciptionests = 0;
 	// constructors
 	
 	
 	// parameterized constructor
-	public Hotel(int HotelRoomsCapacity,int HotelEmployeesCapacity,int HotelClientsCapacity){
+	public Hotel(String name,int HotelRoomsCapacity,int HotelEmployeesCapacity,int HotelClientsCapacity){
+		this.setName(name);
 		Rooms = new Room[HotelRoomsCapacity];
 		HotelEmployees = new HotelEmployee[HotelEmployeesCapacity];
 		Clients = new Client[HotelClientsCapacity];
@@ -27,7 +34,7 @@ public class Hotel implements MOMAH,HotelHRreqs {
 	// copy constructor
 	
 	public Hotel(Hotel Original) {
-		
+		this.setName(Original.getName());
 		this.Rooms = new Room[Original.Rooms.length];
 		this.HotelEmployees = new HotelEmployee[Original.HotelEmployees.length];
 		this.Clients = new Client[Original.Clients.length];
@@ -91,6 +98,30 @@ public class Hotel implements MOMAH,HotelHRreqs {
 	
 	public int getNumOfClients() {
 		return this.NumOfClients;
+	}
+	
+	public int getNumOfEmployeesDeptManagers() {
+		return this.numOfEmployeesDeptManagers;
+	}
+	
+	public int getNumOfSecurityDeptManagers() {
+		return this.numOfSecurityDeptManagers;
+	}
+	
+	public int getNumOfResturantDeptManagers() {
+		return this.numOfResturantDeptManagers;
+	}
+	
+	public int getNumOfCleaningDeptManagers() {
+		return this.numOfCleanerDeptManagers;
+	}
+	
+	public int getNumOfRoomsDeptManagers() {
+		return this.numOfRoomsDeptManagers;
+	}
+	
+	public int getNumOfReciptionests() {
+		return this.numOfReciptionests;
 	}
 	// class related methods
 	
@@ -202,8 +233,9 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 * */
 		if(this.getNumOfRooms() < this.Rooms.length && this.uniqueAddress(Room.getAddress()))
 			this.Rooms[this.NumOfRooms++] = Room;
-		else
+		else {
 			System.out.println("Hotel Rooms Capacity is Full Or Address Isn't Unique!");
+		}
 	}
 	
 	
@@ -312,8 +344,36 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 * */
 		if(this.getNumOfEmployees() < this.HotelEmployees.length)
 			// if instance Manager
-			if(Employee instanceof Manager && this.EmployeesLessThanFifty())
+			if(Employee instanceof Manager && this.EmployeesLessThanFifty()) {
 				this.HotelEmployees[this.NumOfEmployees++] = Employee;
+				
+				if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Employees")) {
+					numOfEmployeesDeptManagers++;
+				}
+				
+				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Rooms")) {
+					numOfRoomsDeptManagers++;
+				}
+				
+				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Resturant")) {
+					numOfResturantDeptManagers++;
+				}
+				
+				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Security")) {
+					numOfSecurityDeptManagers++;
+				}
+				
+				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Cleaning")) {
+					numOfCleanerDeptManagers++;
+				}
+				
+				else if(Employee instanceof Reciptionest) {
+					numOfReciptionests++;
+				}
+				
+				
+				
+			}
 			// other instances
 			else if (this.EmployeesLessThanFifty())
 				this.HotelEmployees[this.NumOfEmployees++] = Employee;
@@ -330,7 +390,38 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 *  ----------------------------------------
 		 * */
 		for(int k = 0; k < this.NumOfEmployees ; k++) {
-			if(this.HotelEmployees[k].Equals(Employee)) {}
+			if(this.HotelEmployees[k].Equals(Employee)) {
+				
+				// check Managers
+				if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Employees")) {
+					numOfEmployeesDeptManagers--;
+				}
+				
+				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Rooms")) {
+					numOfRoomsDeptManagers--;
+				}
+				
+				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Resturant")) {
+					numOfResturantDeptManagers--;
+				}
+				
+				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Security")) {
+					numOfSecurityDeptManagers--;
+				}
+				
+				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Cleaning")) {
+					numOfCleanerDeptManagers--;
+				}
+				
+				else if(this.HotelEmployees[k] instanceof Reciptionest) {
+					numOfReciptionests--;
+				}
+				
+				this.HotelEmployees[k] = this.HotelEmployees[this.getNumOfEmployees() - 1];
+				this.HotelEmployees[this.getNumOfEmployees() - 1] = null;
+				this.NumOfEmployees--;
+				break;
+			}
 		}
 	}
 	
@@ -363,6 +454,7 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 * ----------------------------------------
 		 * */
 		System.out.println(this);
+		this.printHotelLicense();
 		System.out.println("| Rooms Info");
 		System.out.println("------------------------------------------------");
 		
@@ -385,6 +477,11 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		}
 		System.out.println("------------------------------------------------");
 		
+	}
+	
+	public void printHotelLicense() {
+		int end = Math.min(this.getName().length(), 3);
+		System.out.println("HTL-"+this.getName().substring(0,end) + "-" + this.Clients.length + this.HotelEmployees.length + this.Rooms.length);
 	}
 	
 }

@@ -125,6 +125,9 @@ public abstract class Room {
 	}
 	
 	
+	public abstract String getType();
+	
+	
 	// class related methods
 	public String displayInfo() {
 		/*

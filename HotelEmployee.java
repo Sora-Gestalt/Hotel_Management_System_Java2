@@ -36,7 +36,7 @@ public abstract class HotelEmployee implements Absher {
 	}
 	
 	public void setAge(int Age) {
-		if(this.isValidAge())
+		if(this.isValidAge(Age))
 			this.Age = Age;
 		else
 			System.out.println("Invalid Age!");
@@ -62,8 +62,8 @@ public abstract class HotelEmployee implements Absher {
 	
 	// class related methods
 	
-	public boolean isValidAge() {
-		return this.Age > Absher.AgeBounary;
+	public boolean isValidAge(int Age) {
+		return Age > Absher.AgeBounary;
 	}
 	
 	public boolean Equals(HotelEmployee Employee) {
