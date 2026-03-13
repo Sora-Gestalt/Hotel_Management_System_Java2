@@ -1343,10 +1343,13 @@ public class main {
 			if(console.hasNextDouble()) {
 				double value = console.nextDouble();
 				console.nextLine(); 
-				return value;
+				if(value > 0)
+					return value;
 			}
-			System.out.println("Invalid input. Please enter a number");
-			console.next();
+			else {
+				console.next();
+			}
+			System.out.println("Invalid input. Please enter a positive number");
 		}
 	}
 
@@ -1818,5 +1821,6 @@ public class main {
 
 
 }
+
 
 
