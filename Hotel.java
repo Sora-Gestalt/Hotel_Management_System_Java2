@@ -455,6 +455,13 @@ public class Hotel implements MOMAH,HotelHRreqs {
 		 * */
 		System.out.println(this);
 		this.printHotelLicense();
+
+		if(this.ManagersLessThanFive())
+			System.out.println("Managers less than 5 , HR requirement satisified");
+		
+		if(this.EmployeesLessThanFifty())
+			System.out.println("Employees less than 50 , HR requirement satisified");
+		
 		System.out.println("| Rooms Info");
 		System.out.println("------------------------------------------------");
 		
