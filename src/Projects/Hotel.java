@@ -1,18 +1,19 @@
 package Projects;
 
 import java.math.*;
+
+
 import java.io.*;
 
 public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 	// class attr
 	private String name;
-	private Room[] Rooms;
-	private HotelEmployee[] HotelEmployees;
-	private Client[] Clients;
-	private String[] Addresses;
-	private int NumOfRooms;
-	private int NumOfEmployees;
-	private int NumOfClients;
+	private LinkedList Rooms;
+	private LinkedList HotelEmployees;
+	private LinkedList Clients;
+	private LinkedList Addresses;
+	
+	
 	
 	private static int numOfEmployeesDeptManagers = 0;
 	private static int numOfSecurityDeptManagers = 0;
@@ -24,12 +25,12 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 	
 	
 	// parameterized constructor
-	public Hotel(String name,int HotelRoomsCapacity,int HotelEmployeesCapacity,int HotelClientsCapacity){
+	public Hotel(String name){
 		this.setName(name);
-		Rooms = new Room[HotelRoomsCapacity];
-		HotelEmployees = new HotelEmployee[HotelEmployeesCapacity];
-		Clients = new Client[HotelClientsCapacity];
-		Addresses = new String[HotelRoomsCapacity];
+		this.Rooms = new LinkedList();
+		this.HotelEmployees = new LinkedList();
+		this.Clients = new LinkedList();
+		this.Addresses = new LinkedList();
 		
 	}
 	
@@ -37,25 +38,34 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 	
 	public Hotel(Hotel Original) {
 		this.setName(Original.getName());
-		this.Rooms = new Room[Original.Rooms.length];
-		this.HotelEmployees = new HotelEmployee[Original.HotelEmployees.length];
-		this.Clients = new Client[Original.Clients.length];
-		this.NumOfEmployees = Original.NumOfEmployees;
-		this.NumOfRooms = Original.NumOfRooms;
-		this.NumOfClients = Original.NumOfClients;
+		this.Rooms = new LinkedList();
+		this.HotelEmployees = new LinkedList();
+		this.Clients = new LinkedList();
+		this.Addresses = new LinkedList();
 		
-		for(int i = 0; i < Original.getNumOfRooms() ; i ++) {
-			this.Rooms[i] = Original.Rooms[i];
+		Node current = Original.Rooms.getHead();
+		while(current != null) {
+			this.Rooms.insertAtBack(current.data);
+			current = current.next;
 		}
 		
-		for(int j = 0; j < Original.getNumOfEmployees(); j++) {
-			this.HotelEmployees[j] = Original.HotelEmployees[j];
+		current = Original.HotelEmployees.getHead();
+		while(current != null) {
+			this.HotelEmployees.insertAtBack(current.data);
+			current = current.next;
 		}
 		
-		for(int k = 0 ; k < Original.getNumOfClients(); k ++) {
-			this.Clients[k] = Original.Clients[k];
+		current = Original.Clients.getHead();
+		while(current!=null) {
+			this.Clients.insertAtFront(current.data);
+			current = current.next;
 		}
 		
+		current = Original.Addresses.getHead();
+		while(current!=null) {
+			this.Addresses.insertAtFront(current.data);
+			current = current.next;
+		}
 	}
 	
 	// helping methods
@@ -73,9 +83,12 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : boolean
 		 *  ----------------------------------------
 		 * */
-		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].getAddress().equals(Address))
+		Node current = this.Rooms.getHead();
+		while(current != null) {
+			Room r = (Room) current.data;
+			if (r.getAddress().equals(Address))
 				return false;
+			current = current.next;
 		}
 			return true;
 	}
@@ -99,16 +112,16 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		return this.name;
 	}
 	
-	public int getNumOfRooms(){
-		return this.NumOfRooms;
-	}
-	
-	public int getNumOfEmployees() {
-		return this.NumOfEmployees;
+	public int getNumOfRooms() {
+		return this.Rooms.size();
 	}
 	
 	public int getNumOfClients() {
-		return this.NumOfClients;
+		return this.Clients.size();
+	}
+	
+	public int getNumOfEmployees() {
+		return this.HotelEmployees.size();
 	}
 	
 	public int getNumOfEmployeesDeptManagers() {
@@ -138,7 +151,7 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 	
 	
 	// recursion method
-	private int calculateRevenueRecursion(Room[] Rooms , int n) {
+	private int calculateRevenueRecursion(Node node) {
 		/* ----------------------------------------
 		 * Abstract: this method is a recursion method to find total revenue in instance of hotel using getPrice method for each descendant of Room Class
 		 * The method uses a wrapper getRevenue to ensure accurate calculations
@@ -149,16 +162,17 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : int
 		 *  ----------------------------------------
 		 * */
-		if(n <= 0)
+		if (node == null)
 			return 0;
 		
-		return this.Rooms[n-1].getPrice() + calculateRevenueRecursion(Rooms,n-1);
+		Room currentRoom = (Room) node.data;
+		return currentRoom.getPrice() + calculateRevenueRecursion(node.next);
 	}
 	
 	
 	// wrapper method for the recursion method
 	public int getRevenue() {
-		return this.calculateRevenueRecursion(this.Rooms, this.NumOfRooms);
+		return this.calculateRevenueRecursion(this.Rooms.getHead());
 	}
 	
 	// MOMAH Interface Requirements
@@ -187,9 +201,11 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 *  ----------------------------------------
 		 * */
 		int counter = 0;
-		for(int i = 0; i < this.getNumOfEmployees(); i++) {
-			if(this.HotelEmployees[i] instanceof Manager)
+		Node current = this.HotelEmployees.getHead();
+		while(current != null) {
+			if ( current.data instanceof Manager)
 				counter++;
+			current = current.next;
 		}
 		return counter < 5;
 	}
@@ -205,9 +221,11 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 *  ----------------------------------------
 		 * */
 		int counter = 0;
-		for(int i = 0; i < this.getNumOfEmployees(); i++) {
-			if(!(this.HotelEmployees[i] instanceof Manager))
+		Node current = this.HotelEmployees.getHead();
+		while(current!=null) {
+			if(!(current.data instanceof Manager))
 				counter++;
+			current = current.next;
 		}
 		return counter < 50;
 	}
@@ -222,12 +240,15 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : int
 		 *  ----------------------------------------
 		 * */
-		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].getAddress().equals(Room.getAddress()))
-				return i;
-		}
-		
-		throw new IllegalArgumentException("not found.");
+		Node current = this.Rooms.getHead();
+        int index = 0;
+        while (current != null) {
+            if (((Room) current.data).getAddress().equals(Room.getAddress()))
+                return index;
+            current = current.next;
+            index++;
+        }
+        throw new IllegalArgumentException("Room not found.");
 	}
 	
 	
@@ -242,11 +263,10 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		if(this.getNumOfRooms() < this.Rooms.length && this.uniqueAddress(Room.getAddress()))
-			this.Rooms[this.NumOfRooms++] = Room;
-		else {
-			System.out.println("Hotel Rooms Capacity is Full Or Address Isn't Unique!");
-		}
+		if(this.uniqueAddress(Room.getAddress()))
+			this.Rooms.insertAtBack(Room);
+		else
+			System.out.println("Address Isn't Unique!");
 	}
 	
 	
@@ -260,14 +280,13 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		for(int i = 0 ; i < this.getNumOfRooms(); i++) {
-			if(this.Rooms[i].getAddress().equalsIgnoreCase(Room.getAddress())) {
-				this.Rooms[i] = this.Rooms[this.NumOfRooms -1];
-				this.Rooms[this.NumOfRooms-1] = null;
-				this.NumOfRooms--;
-				System.out.println("Room Removed!");
-				break;
-			}
+		try {
+			int index = this.SearchRoom(Room);
+			this.Rooms.removeAtIndex(index);
+		}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -282,11 +301,15 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 *  ----------------------------------------
 		 * */
 		
-		for(int i = 0; i < this.getNumOfClients(); i++) {
-			if(this.Clients[i].Equals(Client))
-				return i;
-		}
-		throw new IllegalArgumentException("not found.");
+		Node current = this.Clients.getHead();
+        int index = 0;
+        while (current != null) {
+            if (((Client) current.data).Equals(Client))
+                return index;
+            current = current.next;
+            index++;
+        }
+        throw new IllegalArgumentException("Client not found.");
 	}
 	
 	
@@ -300,8 +323,7 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		if(this.getNumOfClients() < this.Clients.length)
-			this.Clients[this.NumOfClients++] = Client;
+		this.Clients.insertAtBack(Client);
 	}
 	
 	public void removeClient(Client Client) {
@@ -314,14 +336,13 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		for(int j = 0; j < this.NumOfClients ; j++) {
-			if(this.Clients[j].Equals(Client)) {
-				this.Clients[j] = this.Clients[this.NumOfClients - 1];
-				this.Clients[this.NumOfClients - 1] = null;
-				this.NumOfClients--;
-				System.out.println("Client Removed!");
-				break;
-			}
+		try {
+			int index = this.SearchClient(Client);
+			this.Clients.removeAtIndex(index);
+		}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -336,9 +357,13 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 *  ----------------------------------------
 		 * */
 		
-		for(int i = 0; i < this.getNumOfEmployees(); i++) {
-			if(this.HotelEmployees[i].Equals(Employee))
-				return i;
+		Node current = this.HotelEmployees.getHead();
+		int index = 0;
+		while(current != null) {
+			if(((HotelEmployee) current.data).Equals(Employee))
+				return index;
+			current = current.next;
+			index++;
 		}
 		throw new IllegalArgumentException("not found.");
 	}
@@ -353,43 +378,37 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		if(this.getNumOfEmployees() < this.HotelEmployees.length)
-			// if instance Manager
-			if(Employee instanceof Manager && this.EmployeesLessThanFifty()) {
-				this.HotelEmployees[this.NumOfEmployees++] = Employee;
+		if(this.EmployeesLessThanFifty()) {
+			
+			if (Employee instanceof Manager) {
+				Manager m = (Manager) Employee;
+				String dept = m.getManagerDept();
 				
-				if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Employees")) {
-					numOfEmployeesDeptManagers++;
-				}
-				
-				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Rooms")) {
-					numOfRoomsDeptManagers++;
-				}
-				
-				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Resturant")) {
-					numOfResturantDeptManagers++;
-				}
-				
-				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Security")) {
-					numOfSecurityDeptManagers++;
-				}
-				
-				else if(Employee instanceof Manager && ((Manager)Employee).getManagerDept().equalsIgnoreCase("Cleaning")) {
-					numOfCleanerDeptManagers++;
-				}
-				
-				else if(Employee instanceof Reciptionest) {
-					numOfReciptionests++;
-				}
-				
-				
-				
+				if (dept.equalsIgnoreCase("Employees")) {
+	                numOfEmployeesDeptManagers++;
+	            } else if (dept.equalsIgnoreCase("Rooms")) {
+	                numOfRoomsDeptManagers++;
+	            } else if (dept.equalsIgnoreCase("Resturant")) {
+	                numOfResturantDeptManagers++;
+	            } else if (dept.equalsIgnoreCase("Security")) {
+	                numOfSecurityDeptManagers++;
+	            } else if (dept.equalsIgnoreCase("Cleaning")) {
+	                numOfCleanerDeptManagers++;
+	            }
 			}
-			// other instances
-			else if (this.EmployeesLessThanFifty())
-				this.HotelEmployees[this.NumOfEmployees++] = Employee;
+			
+			else if (Employee instanceof Reciptionest) {
+				numOfReciptionests++;
+			}
+			
+			this.HotelEmployees.insertAtBack(Employee);
+		}
 		
+		else {
+			System.out.println("Cannot add employee: HR limit(50) reached");
+		}	
 	}
+	
 	public void removeEmployee(HotelEmployee Employee) {
 		/* ----------------------------------------
 		 * Abstract: this methods removes an HotelEmployee descendant from Employees list of instance of Hotel
@@ -400,39 +419,55 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		for(int k = 0; k < this.NumOfEmployees ; k++) {
-			if(this.HotelEmployees[k].Equals(Employee)) {
-				
-				// check Managers
-				if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Employees")) {
-					numOfEmployeesDeptManagers--;
+		Node current = this.HotelEmployees.getHead();
+		int index = 0;
+		
+		while(current!=null) {
+			HotelEmployee currentEmp = (HotelEmployee) current.data;
+			
+			if(currentEmp.Equals(Employee)) {
+				if(currentEmp instanceof Manager) {
+					Manager m = (Manager) currentEmp;
+					String dept = m.getManagerDept();
+					
+					if (dept.equalsIgnoreCase("Employees")) {
+	                    numOfEmployeesDeptManagers--;
+	                } else if (dept.equalsIgnoreCase("Rooms")) {
+	                    numOfRoomsDeptManagers--;
+	                } else if (dept.equalsIgnoreCase("Resturant")) {
+	                    numOfResturantDeptManagers--;
+	                } else if (dept.equalsIgnoreCase("Security")) {
+	                    numOfSecurityDeptManagers--;
+	                } else if (dept.equalsIgnoreCase("Cleaning")) {
+	                    numOfCleanerDeptManagers--;
+	                }
 				}
 				
-				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Rooms")) {
-					numOfRoomsDeptManagers--;
-				}
-				
-				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Resturant")) {
-					numOfResturantDeptManagers--;
-				}
-				
-				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Security")) {
-					numOfSecurityDeptManagers--;
-				}
-				
-				else if(this.HotelEmployees[k] instanceof Manager && ((Manager)this.HotelEmployees[k]).getManagerDept().equalsIgnoreCase("Cleaning")) {
-					numOfCleanerDeptManagers--;
-				}
-				
-				else if(this.HotelEmployees[k] instanceof Reciptionest) {
+				else if (currentEmp instanceof Reciptionest) {
 					numOfReciptionests--;
 				}
 				
-				this.HotelEmployees[k] = this.HotelEmployees[this.getNumOfEmployees() - 1];
-				this.HotelEmployees[this.getNumOfEmployees() - 1] = null;
-				this.NumOfEmployees--;
-				break;
+				
+				try {
+					this.HotelEmployees.removeAtIndex(index);
+					System.out.println("Employee Removed!");
+					return;
+				}
+				
+				catch(IllegalArgumentException e) {
+					System.out.println("Employee not found.");
+					return;
+				}
+				
+				catch(NodeDoesntExistException e) {
+					System.out.println("Error removing employee: " + e.getMessage());
+					return;
+				}
+				
+		
 			}
+			current = current.next;
+			index++;
 		}
 	}
 	
@@ -454,7 +489,20 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		return this.displayInfo();
 	}
 	
-	public void displayAllInfo() {
+	public LinkedList getClients() {
+		return this.Clients;	
+	}
+	
+	public LinkedList getRooms() {
+		return this.Rooms;
+	}
+	
+	public LinkedList getHotelEmployees() {
+		return this.HotelEmployees;
+	}
+	
+	
+	public String displayAllInfo() {
 		/*
 		 * ----------------------------------------
 		 * Abstraction : this method prints all Hotel's attributes & Client's Attributes & Employees Attributes & Rooms Attributes
@@ -464,42 +512,52 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
-		System.out.println(this);
-		this.printHotelLicense();
+		String report = "";
+		report += this.toString() + "\n";
+		report += this.printHotelLicense() + "\n";
 		
-		if(this.ManagersLessThanFive())
-			System.out.println("Managers less than 5 , HR requirement satisified");
-		
-		if(this.EmployeesLessThanFifty())
-			System.out.println("Employees less than 50 , HR requirement satisified");
-		
-		System.out.println("| Rooms Info");
-		System.out.println("------------------------------------------------");
-		
-		for(int i = 0 ; i < this.getNumOfRooms() ; i++) {
-			System.out.println(this.Rooms[i]);
-		}
-		System.out.println("------------------------------------------------");
-		
-		System.out.println("\n\n\n Clients Info");
-		System.out.println("------------------------------------------------");
-		for(int j = 0; j < this.getNumOfClients() ; j++) {
-			System.out.println(this.Clients[j]);
-		}
-		System.out.println("------------------------------------------------");
-		
-		System.out.println("\n\n\n Employees Info");
-		System.out.println("------------------------------------------------");
-		for(int k = 0; k < this.getNumOfEmployees() ; k++) {
-			System.out.println(this.HotelEmployees[k]);
-		}
-		System.out.println("------------------------------------------------");
-		
+		if (this.ManagersLessThanFive())
+            report += ("Managers less than 5, HR requirement satisfied\n");
+
+        if (this.EmployeesLessThanFifty())
+            report += ("Employees less than 50, HR requirement satisfied\n");
+        
+        
+        report += ("| Rooms Info\n");
+        report += ("------------------------------------------------\n");
+        Node roomNode = this.Rooms.getHead();
+        while (roomNode != null) {
+            report += (roomNode.data + "\n");
+            roomNode = roomNode.next;
+        }
+        report += ("------------------------------------------------\n");
+        
+        report +=("\n\n\n Clients Info\n");
+        report += ("------------------------------------------------\n");
+        Node clientNode = this.Clients.getHead();
+        while (clientNode != null) {
+        	report+=(clientNode.data + "\n");
+        	clientNode = clientNode.next;
+        }
+        report += ("------------------------------------------------\n");
+        
+        report += ("\n\n\n Employees Info\n");
+        report +=("------------------------------------------------\n");
+        Node empNode = this.HotelEmployees.getHead();
+        while (empNode != null) {
+        	report += (empNode.data +"\n");
+            empNode = empNode.next;
+        }
+        report += ("------------------------------------------------\n");
+        
+        return report;
 	}
 	
-	public void printHotelLicense() {
+	public String printHotelLicense() {
 		int end = Math.min(this.getName().length(), 3);
-		System.out.println("HTL-"+this.getName().substring(0,end) + "-" + this.Clients.length + this.HotelEmployees.length + this.Rooms.length);
+		String license = "";
+		license += ("HTL-"+this.getName().substring(0,end) + "-" + this.Clients.size() + this.HotelEmployees.size() + this.Rooms.size());
+		return license;
 	}
 	
 	
@@ -509,16 +567,32 @@ public class Hotel implements MOMAH,HotelHRreqs,Serializable {
 		FileInputStream fis = new FileInputStream(f);
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		System.out.println("Reading From File");
-		return (Hotel) ois.readObject();
+		Hotel loadedHotel = (Hotel) ois.readObject();
+		ois.close();
+		fis.close();
+		return loadedHotel;
 
 	}
 	
-	public void writeFile(String path) throws FileNotFoundException,IOException {
-		File f = new File(path);
-		FileOutputStream fos = new FileOutputStream(f);
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		System.out.println("Creating File & Writing....");
-		oos.writeObject(this);
+	public void writeFile(String path) {
+		try {
+			File f = new File(path);
+			FileOutputStream fos = new FileOutputStream(f);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			System.out.println("Creating File & Writing....");
+			oos.writeObject(this);
+			oos.flush();
+			oos.close();
+			fos.close();
+		}
+		
+		catch(FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		catch(IOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 }

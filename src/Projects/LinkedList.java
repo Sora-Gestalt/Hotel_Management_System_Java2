@@ -1,6 +1,6 @@
 package Projects;
-
-public class LinkedList {
+import java.io.*; 
+public class LinkedList implements Serializable {
 	private Node head;
 	private Node tail;
 	
@@ -128,6 +128,9 @@ public class LinkedList {
 		else if(index == 0)
 			this.removeAtFront();
 		
+		else if(index == this.size()-1)
+			this.removeAtBack();
+		
 		else {
 			Node targetNode = head;
 			
@@ -161,6 +164,14 @@ public class LinkedList {
 			
 			return linkedListBuild;
 		}
+	}
+	
+	public Node getHead() {
+		return this.head;
+	}
+	
+	public Node getTail() {
+		return this.tail;
 	}
 	
 	@Override

@@ -2,8 +2,7 @@ package Projects;
 import java.io.*;
 public class Reciptionest extends HotelEmployee implements Serializable {
 	// class attrs
-	String[] languages = new String[5];
-	int NumOfLangs;
+	LinkedList languages;
 	
 	// constructors
 	
@@ -11,23 +10,27 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 	// parameterized constructor
 	public Reciptionest(String Name,int Age, double Salary) {
 		super(Name,Age,Salary);
-		this.NumOfLangs = 0;
+		this.languages = new LinkedList();
 	}
 	
 	// copy constructor
 	public Reciptionest(Reciptionest Original) {
 		super(Original.getName(),Original.getAge(),Original.getSalary());
-		this.NumOfLangs = Original.NumOfLangs;
-		for(int i = 0; i < Original.getNumOfLangs();i++) {
-			this.languages[i] = Original.languages[i];
+		this.languages = new LinkedList();
+		Node current = Original.languages.getHead();
+		while(current != null) {
+			this.languages.insertAtBack(current);
+			current = current.next;
 		}
 	}
 	
 	// helping method
 	private boolean notDuplicate(String Lang) {
-		for(int i = 0; i < this.NumOfLangs ; i++) {
-			if(this.languages[i].equalsIgnoreCase(Lang))
+		Node current = this.languages.getHead();
+		while(current != null ) {
+			if(((String) current.getData()).equalsIgnoreCase(Lang))
 				return false;
+			current = current.next;
 		}
 		
 		return true;
@@ -61,8 +64,10 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 		 * Returns : String
 		 * */
 		String complete = "";
-		for(int i = 0; i < this.getNumOfLangs() ; i++) {
-			complete += ("\nLanguage: " + this.languages[i]);
+		Node current = this.languages.getHead();
+		while(current != null) {
+			complete += "\n Language: " + (String) current.getData();
+			current = current.next;
 		}
 		return complete;
 	}
@@ -73,7 +78,7 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 	
 	// getters
 	public int getNumOfLangs() {
-		return this.NumOfLangs;
+		return this.languages.size();
 	}
 	
 	// class related
@@ -90,6 +95,16 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 		return (super.displayInfo() + " Number of Spoken Languages: " + this.getNumOfLangs() + "\n Spoken Languages => " + this.printSpokenLanguages() + "");
 	}
 	
+	public boolean hasLang(String lang) {
+		Node current = this.languages.getHead();
+		while(current != null) {
+			String selectedLang = (String) current.getData();
+			if(selectedLang.equalsIgnoreCase(lang))
+				return true;
+		}
+		
+		return false;
+	}
 	
 	@Override
 	public String toString() {
@@ -97,15 +112,20 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 	}
 	
 	public int searchLang(String Lang) {
-		for(int i = 0; i < this.getNumOfLangs();i++) {
-			if(this.languages[i].equalsIgnoreCase(Lang))
-				return i;
+		Node current = this.languages.getHead();
+		int index = 0;
+		while(current != null) {
+			if(((String) current.getData()).equalsIgnoreCase(Lang)) {
+				return index;
+			}
+			index++;
+			current = current.next;
 		}
 		
 		throw new IllegalArgumentException("not found!");
 	}
 	
-	public void addLang(String Lang) {
+	public boolean addLang(String Lang) {
 		/*
 		 * Abstract: this method adds String Lang if isNeededLang(Lang) method is satisfied
 		 * 
@@ -114,10 +134,14 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 		 * 
 		 * Returns : String
 		 * */
-		if(this.getNumOfLangs() < this.languages.length && this.isNeededLang(Lang) && this.notDuplicate(Lang))
-			this.languages[this.NumOfLangs++] = Lang;
-		else
+		if(this.getNumOfLangs() < 4 && this.isNeededLang(Lang) && this.notDuplicate(Lang)) {
+			this.languages.insertAtBack(Lang);
+			return true;
+		}
+		else {
 			System.out.println("Language is duplicated or number of spoken needed languages is full!");
+			return false;
+		}
 	}
 	
 	public void removeLang(String Lang) {
@@ -130,16 +154,25 @@ public class Reciptionest extends HotelEmployee implements Serializable {
 		 * Returns : void
 		 * */
 		boolean found = false;
-		for(int i = 0; i < this.getNumOfLangs() ; i++) {
-			if(this.languages[i].equalsIgnoreCase(Lang)) {
-				this.languages[i] = this.languages[this.NumOfLangs - 1];
-				this.languages[this.NumOfLangs - 1] = null;
-				this.NumOfLangs--;
-				System.out.println("Language Removed!");
-				found = true;
-				break;
+		Node current = this.languages.getHead();
+		int index = 0;
+		while(current != null) {
+			if(((String) current.getData()).equalsIgnoreCase(Lang)){
+				try {
+					this.languages.removeAtIndex(index);
+					found = true;
+					return;
+				}
+				
+				catch(Exception e) {
+					System.out.println("couldn't remove language");
+					return;
+				}
+					
 			}
 			
+			index++;
+			current = current.next;
 		}
 		
 		if(!found)

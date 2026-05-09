@@ -7,8 +7,7 @@ public class Client implements Absher,Serializable{
 	private String Name;
 	private int Age;
 	private boolean ClearViolationRecord;
-	private Room[] Rooms = new Room[3];
-	private int numOfRooms = 0;
+	private LinkedList Rooms;
 
 	// constructors
 
@@ -17,6 +16,7 @@ public class Client implements Absher,Serializable{
 		this.setName(Name);
 		this.setAge(Age);
 		this.setViolationRecord(ClearViolationRecord);
+		this.Rooms = new LinkedList();
 	}
 
 	// copy constructor
@@ -24,10 +24,12 @@ public class Client implements Absher,Serializable{
 		this.setName(Original.getName());
 		this.setAge(Original.getAge());
 		this.setViolationRecord(Original.getViolationRecord());
-		this.numOfRooms = Original.getNumOfRooms();
-
-		for(int i = 0; i < Original.getNumOfRooms() ; i++) {
-			this.Rooms[i] = Original.Rooms[i];
+		this.Rooms = new LinkedList();
+		
+		Node current = this.Rooms.getHead();
+		while(current!=null) {
+			this.Rooms.insertAtBack(current);
+			current = current.next;
 		}
 	}
 
@@ -40,9 +42,12 @@ public class Client implements Absher,Serializable{
 		 * 
 		 * Returns : boolean
 		 * */
-		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].getAddress().equalsIgnoreCase(room.getAddress()))
+		Node current = this.Rooms.getHead();
+		while (current != null) {
+			if (((Room)current.data).getAddress().equalsIgnoreCase(room.getAddress())) {
 				return true;
+			}
+			current = current.next;
 		}
 		return false;
 	}
@@ -74,9 +79,13 @@ public class Client implements Absher,Serializable{
 	public boolean getViolationRecord() {
 		return this.ClearViolationRecord;
 	}
+	
+	public LinkedList getRooms() {
+		return this.Rooms;
+	}
 
 	public int getNumOfRooms() {
-		return this.numOfRooms;
+		return this.Rooms.size();
 	}
 
 	// class related methods
@@ -107,9 +116,12 @@ public class Client implements Absher,Serializable{
 	}
 
 	public Room Search(Room Room) {
-		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].equals(Room))
-				return Room;
+		Node current = this.Rooms.getHead();
+		while (current != null) {
+			if (((Room)current.data).getAddress().equalsIgnoreCase(Room.getAddress())) {
+				return (Room)current.data;
+			}
+			current = current.next;
 		}
 		throw new IllegalArgumentException("not Found");
 	}
@@ -124,10 +136,10 @@ public class Client implements Absher,Serializable{
 		 * Returns : void
 		 *  ----------------------------------------
 		 * */
-		if(this.getNumOfRooms() < this.Rooms.length && !this.isDuplicateRoom(Room))
-			this.Rooms[this.numOfRooms++] = Room;
+		if(!this.isDuplicateRoom(Room))
+			this.Rooms.insertAtBack(Room);
 		else
-			throw new IllegalArgumentException("Duplicated Room!");
+			throw new IllegalArgumentException("Duplicated Room");
 	}
 
 
@@ -142,18 +154,26 @@ public class Client implements Absher,Serializable{
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
-		boolean notfound = true;
-		for(int i = 0; i < this.getNumOfRooms() ; i++) {
-			if(this.Rooms[i].getAddress().equalsIgnoreCase(Room.getAddress())) {
-				this.Rooms[i] = this.Rooms[this.numOfRooms - 1];
-				this.Rooms[this.numOfRooms - 1] = null; // safe code practice ( to prevent garbage collector from freeing up memory )
-				this.numOfRooms--;
-				notfound = false;
-				break;
+		Node current = this.Rooms.getHead();
+		int index = 0;
+		boolean found = false;
+		while (current != null) {
+			if (((Room)current.data).getAddress().equalsIgnoreCase(Room.getAddress())) {
+				try {
+					this.Rooms.removeAtIndex(index);
+					found = true;
+					break;
+				} catch (Exception e) {
+					System.out.println("Error removing room: " + e.getMessage());
+				}
 			}
+			current = current.next;
+			index++;
 		}
-		if(notfound)
+		
+		if (!found) {
 			throw new IllegalArgumentException("Client does not own room: " + Room.getAddress());
+		}
 	}
 
 	public void releaseAllRooms() {
@@ -165,8 +185,7 @@ public class Client implements Absher,Serializable{
 		 * Returns: void
 		 * */
 
-		while(this.numOfRooms > 0)
-			this.removeRoom(this.Rooms[0]);
+		this.Rooms.clearList();
 	}
 
 

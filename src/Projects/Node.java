@@ -1,9 +1,9 @@
 package Projects;
-
-public class Node {
-	Object data;
-	Node next;
-	Node previous;
+import java.io.*;
+public class Node implements Serializable  {
+	public Object data;
+	public Node next;
+	public Node previous;
 	
 	Node(Object data){
 		this.data = data;

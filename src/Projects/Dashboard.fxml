@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #001524;" 
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="Projects.HotelController">
+   <children>
+   		<StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            
+            <VBox fx:id="setupPane" alignment="CENTER" maxWidth="500.0" maxHeight="400.0" spacing="25.0" 
+                  style="-fx-background-color: #15616d; 
+                         -fx-background-radius: 20; 
+                         -fx-border-color: #d97706; 
+                         -fx-border-width: 0.5; 
+                         -fx-border-radius: 20;">
+               
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+               
+              	<children>
+              		<ImageView fx:id="setupLogo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+					   <VBox.margin>
+					      <Insets bottom="10.0" />
+					   </VBox.margin>
+					</ImageView>
+				   <Label text="KSU HOTEL SYSTEMS" textFill="#ffecd1">
+				      <font>
+				         <Font name="Segoe UI Bold" size="32.0" />
+				      </font>
+				   </Label>
+				   <!-- Create new hotel -->
+				   <VBox spacing="10.0" alignment="CENTER">
+				      <children>
+				         <TextField fx:id="hotelNameField" prefHeight="45.0" promptText="Enter new hotel name..." 
+				                    style="-fx-background-color: #001524; -fx-text-fill: #ffecd1; -fx-border-color: #15616d; -fx-border-radius: 8;" />
+				         <Button onAction="#onStartHotel" prefHeight="50.0" maxWidth="Infinity" text="Create new hotel" 
+				                 style="-fx-background-color: #ff7d00; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 8;" />   
+				      </children>
+				   </VBox>
+				   
+				   <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+				   
+				   <!-- load hotel -->
+				   <VBox spacing="10.0" alignment="CENTER">
+				      <children>
+				         <Label text="Or continue progress:" textFill="#ffecd1">
+				            <font><Font name="Segoe UI" size="14.0" /></font>
+				         </Label>
+				         <Button onAction="#handleLoadFromPath" prefHeight="40.0" prefWidth="200.0" text="Load Previous Save" 
+				                 style="-fx-background-color: #ff7d00; -fx-text-fill: #ffffff; -fx-border-radius: 8; -fx-cursor: hand;" />
+				      </children>
+				   </VBox>
+				</children>
+            </VBox>
+         </children>
+      </StackPane>
+      
+      <!--Dashboard-->
+      <BorderPane fx:id="navBarPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" visible="false">
+        <!--Nav sidebar-->
+      	<left>
+            <VBox spacing="2.0" alignment="TOP_LEFT" style="-fx-background-color: #0d3b66">
+                <children>
+                	<Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                	<!-- View Dashboard Pane-->
+                    <Button onAction="#showDashboard" prefHeight="40.0" prefWidth="200.0" text="Dashboard" style="-fx-background-color: #ff7d00"/>
+                    <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                    <!--View Client pane-->
+                    <Button onAction="#showClientsPane" prefHeight="40.0" prefWidth="200.0" text="Clients" style="-fx-background-color: #ff7d00"/>
+                    <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                    <!--View Room pane-->
+                    <Button onAction="#showRoomsPane" prefHeight="40.0" prefWidth="200.0" text="Rooms" style="-fx-background-color: #ff7d00"/>
+                    <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                    <!--View Employees Pane-->
+                    <Button onAction="#showEmployeesPane" prefHeight="40.0" prefWidth="200.0" text="Staff" style="-fx-background-color: #ff7d00"/>
+                    <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                    
+                    <!--Shut down button-->
+                    <Region VBox.vgrow="ALWAYS"/>
+                    <Separator maxWidth="200.0" style="-fx-opacity: 0.2;" />
+                    <Button onAction="#handleExitProgram" prefHeight="40.0" prefWidth="200.0" text="System Shutdown" style="-fx-background-color: #78290f; -fx-text-fill: #ffecd1; -fx-font-weight: bold"/>
+                    <Separator prefHeight="100.0" maxWidth="200.0" style="-fx-opacity: 0.0;" />
+             
+                </children>
+            </VBox>
+        </left>
+      	
+      	<center>
+      		
+            <StackPane fx:id="workspace">
+                <children>
+                	<!--Dashboard Pane-->
+                    <VBox fx:id="dashboardPane" spacing="20.0" visible="true" managed="true">
+                    	<padding>
+                    		<Insets bottom="20.0" top="20.0" right="20.0" left="20.0"/>
+                    	</padding>
+                    	
+                    	<children>
+                    		<!--Console Window-->
+                    		<TextArea fx:id="statusConsole" VBox.vgrow="ALWAYS" editable="false" wrapText="true" style="-fx-control-inner-background: #001524; -fx-text-fill: #ff7d00; -fx-font-family: 'Consolas'; -fx-border-color: #15616d; -fx-border-radius: 5;" text="[SYSTEM LOG] INITIALIZED!"/>
+                    		
+                    		<!--Options-->
+                    		<HBox spacing="15.0" alignment="CENTER_RIGHT">
+                    			
+                    			<children>
+                    				<VBox spacing="5.0">
+                    					<children>
+                    						<!--SET NEW HOTEL NAME OPTION-->
+                    						<Label text="Set New Hotel Name" textFill="#15616d" style="-fx-font-size: 11;"/>
+                    						<HBox spacing="10.0">
+                    							<children>
+                    								<TextField fx:id="updateHotelNameField" prefHeight="40.0" promptText="Enter new hotel name..." style="-fx-background-color: #001524; -fx-text-fill: #ffecd1; -fx-border-color: #15616d;"/>
+                    								<Button onAction="#handleUpdateHotelName" prefHeight="40.0" text="Update Name" style="-fx-background-color: #15616d; -fx-text-fill: #ffecd1;"/>
+                    							</children>
+                    						</HBox>
+                    					</children>
+                    				</VBox>
+                    				
+                    				<!--DISPLAY HOTEL INFO OPTION & DISPLAY ALL HOTEL INFO OPTIONS-->
+                    				<Region HBox.hgrow="ALWAYS" />
+                    				<VBox spacing="10.0" alignment="BOTTOM_RIGHT">
+                    					<children>
+                    						<HBox spacing="10.0">
+                    							<children>
+                    								<Button onAction="#handleDisplayHotelInfo" text="Display Hotel Info" prefHeight="35.0" style="-fx-background-color: transparent; -fx-text-fill: #ffecd1; -fx-border-color: #ffecd1;"/>
+                    								<Button onAction="#handleDisplayAllHotelInfo" text="Display All Hotel Info" prefHeight="35.0" style="-fx-background-color: transparent; -fx-text-fill: #ffecd1; -fx-border-color: #ffecd1;"/>
+                    							</children>
+                    						</HBox>
+                    						<Button onAction="#handleGetRevenue" text="Calculate tonight's revenue" prefHeight="45.0" prefWidth="220.0" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;"/>
+                    					</children>
+                    				</VBox>
+                    			</children>
+                    		</HBox>
+                    	</children>
+                    	
+                    	
+                    </VBox>
+                    
+                    <!--Clients Pane-->
+                   <VBox fx:id="clientsPane" spacing="15.0" visible="false" managed="false">
+					    <padding>
+					        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+					    </padding>
+					    
+					    <children>
+					        <HBox alignment="CENTER_LEFT" spacing="20.0" prefHeight="50.0">
+					            <children>
+					                <Label text="CLIENT MANAGEMENT" textFill="#ffecd1" style="-fx-font-weight: bold; -fx-font-size: 24;" />
+					                <Region HBox.hgrow="ALWAYS" />
+					                <TextField fx:id="clientSearchField" onAction="#handleSearchClient" prefHeight="40.0" prefWidth="300.0" 
+					                           promptText="Search by name..." 
+					                           style="-fx-background-color: #001524; -fx-text-fill: white; -fx-border-color: #15616d; -fx-border-radius: 5;" />
+					            </children>
+					        </HBox>
+					
+					        <VBox VBox.vgrow="ALWAYS" spacing="10.0" style="-fx-border-color: #15616d; -fx-border-width: 1; -fx-border-radius: 5;">
+					            <children>
+					                <ListView fx:id="clientListView" VBox.vgrow="ALWAYS" 
+					                          style="-fx-background-color: #001524; -fx-control-inner-background: #001524; -fx-background-insets: 0;" />
+					            </children>
+					        </VBox>
+					
+					        <HBox spacing="15.0" alignment="CENTER_LEFT">
+					            <children>
+					                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+					                    <children>
+					                        
+					                        <HBox spacing="10.0">
+					                            <children>
+					                                <TextField fx:id="newClientNameField" HBox.hgrow="ALWAYS" prefHeight="40.0" promptText="Full Legal Name" 
+					                                           style="-fx-background-color: #001524; -fx-text-fill: white; -fx-border-color: #15616d;" />
+					                                <TextField fx:id="newClientAgeField" prefHeight="40.0" prefWidth="70.0" promptText="Age" 
+					                                           style="-fx-background-color: #001524; -fx-text-fill: white; -fx-border-color: #15616d;" />
+					                                <CheckBox fx:id="violationClearBox" text="Clear Violation Record" textFill="#ffecd1" />
+					                                <Button onAction="#handleAddClient" prefHeight="40.0" prefWidth="120.0" text="CREATE" 
+					                                        style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" />
+					                            </children>
+					                        </HBox>
+					                    </children>
+					                </VBox>
+					                
+					                <Region prefWidth="20.0" />
+					                
+					                <VBox spacing="10.0" alignment="BOTTOM_RIGHT">
+					                    <children>
+					                        <HBox spacing="10.0">
+					                            <children>
+					                                <Button onAction="#handleDisplayClientInfo" prefHeight="35.0" text="View Client Information" 
+					                                        style="-fx-background-color: transparent; -fx-text-fill: #ffecd1; -fx-border-color: #15616d;" />
+					                                <Button onAction="#handleRemoveClient" prefHeight="35.0" text="Remove Client" 
+					                                        style="-fx-background-color: #78290f; -fx-text-fill: #ffecd1;" />
+					                            </children>
+					                        </HBox>
+					                        <HBox spacing="10.0">
+					                            <children>
+					                                <Button onAction="#handleUnassignRoomFromClient" prefHeight="45.0" prefWidth="150.0" text="DEALLOCATE ROOM" 
+					                                        style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" />
+					                                <Button onAction="#handleAssignRoomToClient" prefHeight="45.0" prefWidth="220.0" text="ALLOCATE ROOM" 
+					                                        style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" />
+					                            </children>
+					                        </HBox>
+					                    </children>
+					                </VBox>
+					            </children>
+					        </HBox>
+					
+					        <TextArea fx:id="clientStatusConsole" editable="false" prefHeight="80.0" minHeight="80.0" maxHeight="80.0"
+					                  style="-fx-font-family: 'Consolas'; -fx-control-inner-background: #001524; -fx-text-fill: #ff7d00; -fx-border-color: #15616d;" />
+					    </children>
+					</VBox>
+                    <!--Rooms Pane-->
+                    <VBox fx:id="roomsPane" spacing="20.0" visible="false" managed="false">
+					    <padding>
+					        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+					    </padding>
+					    <children>
+					        <HBox alignment="CENTER_LEFT" spacing="15.0">
+					            <children>    
+					                <VBox>
+					                    <children>
+					                        <Label text="ROOM MANAGEMENT" textFill="#ffecd1" style="-fx-font-weight: bold; -fx-font-size: 22;" />     
+					                    </children>
+					                </VBox>
+					            </children>
+					        </HBox>
+					
+					        <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+					            <children>
+					                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+					                    <children>
+					                        <ListView fx:id="roomsListView" VBox.vgrow="ALWAYS" 
+					                                  style="-fx-background-color: #001524; -fx-control-inner-background: #001524; -fx-border-color: #15616d; -fx-border-radius: 5;" />
+					                        
+					                        <VBox spacing="12.0" style="-fx-background-color: #15616d; -fx-padding: 15; -fx-background-radius: 10;">
+					                            <children>
+					                                <HBox spacing="10.0">
+					                                    <children>
+					                                        <Button maxWidth="Infinity" onAction="#handleDisplayRoomInfo" style="-fx-background-color: #001524; -fx-text-fill: #ffecd1; -fx-border-color: #ffecd1;" text="Display Room Information" HBox.hgrow="ALWAYS" />
+					                                        <Button maxWidth="Infinity" onAction="#handleDemolishRoom" style="-fx-background-color: #78290f; -fx-text-fill: #ffecd1; -fx-font-weight: bold;" text="Demolish Room" HBox.hgrow="ALWAYS" />
+					                                    </children>
+					                                </HBox>
+					                                <Separator style="-fx-opacity: 0.1;" />
+					                                <HBox alignment="CENTER_LEFT" spacing="15.0">
+					                                    <children>
+					                                        <Label text="Duration:" textFill="#ffecd1" />
+					                                        <TextField fx:id="nightsField" prefWidth="80.0" promptText="Nights" style="-fx-background-color: #001524; -fx-text-fill: white; -fx-border-color: #001524;" />
+					                                        <Button maxWidth="Infinity" onAction="#handleCalculateRoomPrice" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Calculate Price" HBox.hgrow="ALWAYS" />
+					                                    </children>
+					                                </HBox>
+					                            </children>
+					                        </VBox>
+					                    </children>
+					                </VBox>
+					                
+					                <VBox prefWidth="420.0" spacing="10.0">
+					                    <children>
+					                        <TabPane prefHeight="500.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS"
+					                                 style="-fx-background-color: #001524; -fx-border-color: #15616d; -fx-border-radius: 5;">
+					                            <tabs>
+					                                <Tab text="Standard / Studio">
+					                                    <content>
+					                                        <ScrollPane fitToWidth="true" style="-fx-background: #001524; -fx-background-color: #001524; -fx-border-color: transparent;">
+					                                            <content>
+					                                                <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #001524;">
+					                                                    <children>
+					                                                        <Label text="Standard Room Specs" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                        <TextField fx:id="newStandardRoomNumOfBeds" promptText="Beds" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newStandardRoomNumOfBathrooms" promptText="Bathrooms" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newStandardRoomNumOfKitchens" promptText="Kitchens" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <Button maxWidth="Infinity" onAction="#handleCreateStandardRoom" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Create Standard" />
+					                                                        
+					                                                        <Separator style="-fx-opacity: 0.2;" />
+					                                                        
+					                                                        <Label text="Studio Room Specs" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                        <TextField fx:id="newStudioRoomNumOfBeds" promptText="Studio Beds" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newStudioRoomNumOfBathrooms" promptText="Studio Bathrooms" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newStudioRoomNumOfKitchens" promptText="Studio Kitchens" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <Button maxWidth="Infinity" onAction="#handleCreateStudioRoom" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Create Studio" />
+					                                                    </children>
+					                                                </VBox>
+					                                            </content>
+					                                        </ScrollPane>
+					                                    </content>
+					                                </Tab>
+					                                
+					                                <Tab text="Suite / Royal">
+					                                    <content>
+					                                        <ScrollPane fitToWidth="true" style="-fx-background: #001524; -fx-background-color: #001524; -fx-border-color: transparent;">
+					                                            <content>
+					                                                <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #001524;">
+					                                                    <children>
+					                                                        <Label text="Suite Room Specs" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                        <TextField fx:id="newSuiteRoomNumOfBeds" promptText="Suite Beds" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newSuiteRoomNumOfBathrooms" promptText="Suite Bathrooms" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newSuiteRoomNumOfKitchens" promptText="Suite Kitchens" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newSuiteRoomNumOfBalconies" promptText="Suite Balconies" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <Button maxWidth="Infinity" onAction="#handleCreateSuiteRoom" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Create Suite" />
+					                                                        
+					                                                        <Separator style="-fx-opacity: 0.2;" />
+					                                                        
+					                                                        <Label text="Royal Suite Specs" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                        <TextField fx:id="newRoyalSuiteRoomNumOfBeds" promptText="Royal Beds" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newRoyalSuiteRoomNumOfBathrooms" promptText="Royal Bathrooms" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newRoyalSuiteRoomNumOfKitchens" promptText="Royal Kitchens" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newRoyalSuiteRoomNumOfBalconies" promptText="Royal Balconies" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <TextField fx:id="newRoyalSuiteRoomNumOfPrivatePools" promptText="Private Pools" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                        <Button maxWidth="Infinity" onAction="#handleCreateRoyalSuiteRoom" style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Create Royal Suite" />
+					                                                    </children>
+					                                                </VBox>
+					                                            </content>
+					                                        </ScrollPane>
+					                                    </content>
+					                                </Tab>
+					                            </tabs>
+					                        </TabPane>
+					                    </children>
+					                </VBox>
+					            </children>
+					        </HBox>
+					        <TextArea fx:id="roomStatusConsole" editable="false" prefHeight="100.0" 
+					                  style="-fx-font-family: 'Consolas'; -fx-control-inner-background: #001524; -fx-text-fill: #ff7d00; -fx-border-color: #15616d;" 
+					                  text="&gt; Room Manager Loaded" wrapText="true" />
+					    </children>
+					</VBox>
+                    <!--Employees Pane-->
+                    <VBox fx:id="hotelEmployeesPane" spacing="20.0" visible="false" managed="false">
+					    <padding>
+					        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+					    </padding>
+					    <children>
+					        <HBox alignment="CENTER_LEFT" spacing="15.0">
+					            <children>
+					                <VBox>
+					                    <children>
+					                        <Label text="STAFF MANAGEMENT" textFill="#ffecd1" style="-fx-font-weight: bold; -fx-font-size: 22;" />
+					                    </children>
+					                </VBox>
+					            </children>
+					        </HBox>
+					
+					        <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+					            <children>
+					                <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+					                    <children>
+					                        <ListView fx:id="employeesListView" VBox.vgrow="ALWAYS" 
+					                                  style="-fx-background-color: #001524; -fx-control-inner-background: #001524; -fx-border-color: #15616d; -fx-border-radius: 5;" />
+					                        
+					                        <VBox spacing="10.0" style="-fx-background-color: #15616d; -fx-padding: 15; -fx-background-radius: 10;">
+					                            <children>
+					                                <HBox spacing="10.0">
+					                                    <children>
+					                                        <Button onAction="#handleAddEmployeeToManagerTeam" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+					                                                style="-fx-background-color: #001524; -fx-text-fill: #ffecd1;" text="Add to Team" />
+					                                        <Button onAction="#handleRemoveEmployeeFromManagerTeam" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+					                                                style="-fx-background-color: #001524; -fx-text-fill: #ffecd1;" text="Remove from Team" />
+					                                    </children>
+					                                </HBox>
+					                                <HBox spacing="10.0">
+					                                    <children>
+					                                        <Button onAction="#handleAddLanguageToReciptionest" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+					                                                style="-fx-background-color: #001524; -fx-text-fill: #ffecd1;" text="Add Language" />
+					                                        <Button onAction="#handleRemoveLanguageFromReciptionest" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+					                                                style="-fx-background-color: #001524; -fx-text-fill: #ffecd1;" text="Remove Language" />
+					                                    </children>
+					                                </HBox>
+					                                <Separator style="-fx-opacity: 0.1;" />
+					                                <Button onAction="#handleKickEmployee" maxWidth="Infinity" 
+					                                        style="-fx-background-color: #78290f; -fx-text-fill: #ffecd1; -fx-font-weight: bold;" text="Kick Employee" />
+					                            </children>
+					                        </VBox>
+					                    </children>
+					                </VBox>
+					                
+					                <VBox prefWidth="420.0" spacing="10.0">
+					                    <children>
+					                        <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS"
+					                                 style="-fx-background-color: #001524; -fx-border-color: #15616d; -fx-border-radius: 5;">
+					                            <tabs>
+					                                <Tab text="Cook / Security">
+					                                    <content>
+					                                        <ScrollPane fitToWidth="true" style="-fx-background: #001524; -fx-background-color: #001524; -fx-border-color: transparent;">
+					                                            <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #001524;">
+					                                                <children>
+					                                                    <Label text="Cook Profile" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                    <TextField fx:id="newCookName" promptText="Name" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newCookAge" promptText="Age" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newCookSalary" promptText="Salary" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <ComboBox fx:id="cookTimes" promptText="Specialty Time" maxWidth="Infinity" style="-fx-background-color: #15616d;" />
+					                                                    <Button onAction="#handleCreatCook" maxWidth="Infinity" prefHeight="35.0"
+					                                                            style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Hire Cook" />
+					                                                    
+					                                                    <Separator style="-fx-opacity: 0.2;" />
+					                                                    
+					                                                    <Label text="Security Profile" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                    <TextField fx:id="newSecurityName" promptText="Name" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newSecurityAge" promptText="Age" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newSecuritySalary" promptText="Salary" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <ComboBox fx:id="sectors" promptText="Sector" maxWidth="Infinity" style="-fx-background-color: #15616d;" />
+					                                                    <Button onAction="#handleCreateSecurity" maxWidth="Infinity" prefHeight="35.0"
+					                                                            style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Hire Security" />
+					                                                </children>
+					                                            </VBox>
+					                                        </ScrollPane>
+					                                    </content>
+					                                </Tab>
+					                                
+					                                <Tab text="Reciptionest / Cleaner">
+					                                    <content>
+					                                        <ScrollPane fitToWidth="true" style="-fx-background: #001524; -fx-background-color: #001524; -fx-border-color: transparent;">
+					                                            <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #001524;">
+					                                                <children>
+					                                                    <Label text="Receptionist Profile" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                    <TextField fx:id="newReciptionestName" promptText="Name" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newReciptionestAge" promptText="Age" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newReciptionestSalary" promptText="Salary" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <ComboBox fx:id="languages" promptText="Language Cert" maxWidth="Infinity" style="-fx-background-color: #15616d;" />
+					                                                    <Button onAction="#handleCreateReciptionest" maxWidth="Infinity" prefHeight="35.0"
+					                                                            style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Hire Receptionist" />
+					                                                    
+					                                                    <Separator style="-fx-opacity: 0.2;" />
+					                                                    
+					                                                    <Label text="Cleaner Profile" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                    <TextField fx:id="newCleanerName" promptText="Name" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newCleanerAge" promptText="Age" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newCleanerSalary" promptText="Salary" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <ComboBox fx:id="cleanSections" promptText="Section" maxWidth="Infinity" style="-fx-background-color: #15616d;" />
+					                                                    <Button onAction="#handleCreateCleaner" maxWidth="Infinity" prefHeight="35.0"
+					                                                            style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Hire Cleaner" />
+					                                                </children>
+					                                            </VBox>
+					                                        </ScrollPane>
+					                                    </content>
+					                                </Tab>
+					                                
+					                                <Tab text="Manager">
+					                                    <content>
+					                                        <ScrollPane fitToWidth="true" style="-fx-background: #001524; -fx-background-color: #001524; -fx-border-color: transparent;">
+					                                            <VBox spacing="15.0" style="-fx-padding: 20; -fx-background-color: #001524;">
+					                                                <children>
+					                                                    <Label text="Manager Profile" textFill="#ff7d00" style="-fx-font-weight: bold;" />
+					                                                    <TextField fx:id="newManagerName" promptText="Name" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newManagerAge" promptText="Age" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newManagerSalary" promptText="Salary" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <TextField fx:id="newManagerTeamSize" promptText="Max Team Size" style="-fx-background-color: #15616d; -fx-text-fill: white;" />
+					                                                    <ComboBox fx:id="depts" promptText="Department" maxWidth="Infinity" style="-fx-background-color: #15616d;" />
+					                                                    <Button onAction="#handleCreateManager" maxWidth="Infinity" prefHeight="35.0"
+					                                                            style="-fx-background-color: #ff7d00; -fx-text-fill: #001524; -fx-font-weight: bold;" text="Hire Manager" />
+					                                                </children>
+					                                            </VBox>
+					                                        </ScrollPane>
+					                                    </content>
+					                                </Tab>
+					                            </tabs>
+					                        </TabPane>
+					                    </children>
+					                </VBox>
+					            </children>
+					        </HBox>
+					        
+					        <TextArea fx:id="employeeStatusConsole" editable="false" prefHeight="100.0" 
+					                  style="-fx-font-family: 'Consolas'; -fx-control-inner-background: #001524; -fx-text-fill: #ff7d00; -fx-border-color: #15616d;" 
+					                  text="&gt; Staff Manager Loaded" wrapText="true" />
+					    </children>
+					</VBox>
+                    
+                    
+                </children>
+            </StackPane>
+        </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

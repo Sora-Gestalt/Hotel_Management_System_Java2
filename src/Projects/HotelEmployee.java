@@ -66,8 +66,13 @@ public abstract class HotelEmployee implements Absher,Serializable{
 		return Age > Absher.AgeBounary;
 	}
 	
+
+	
 	public boolean Equals(HotelEmployee Employee) {
-		return(this.getName().equals(Employee.getName()) && this.getAge() == Employee.getAge() && this.getSalary() == Employee.getSalary());
+		boolean nameMatch = this.getName().equals(Employee.getName());
+		boolean ageMatch = this.getAge() == Employee.getAge();
+		boolean salaryMatch = Math.abs(this.getSalary() - Employee.getSalary()) < 0.01;
+		return nameMatch&&ageMatch&&salaryMatch;
 	}
 	
 	

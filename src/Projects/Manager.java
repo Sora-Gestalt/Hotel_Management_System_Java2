@@ -6,7 +6,7 @@ public class Manager extends HotelEmployee implements Serializable {
 	private String ManagerDept;
 	private int TeamSize;
 	private int numOfEmployees;
-	private HotelEmployee[] Team;
+	private LinkedList Team;
 
 	
 	// constructors
@@ -18,7 +18,7 @@ public class Manager extends HotelEmployee implements Serializable {
 		this.setManageDept(Dept);
 		this.setTeamSize(Size);
 		this.numOfEmployees = 0;
-		Team = new HotelEmployee[this.getTeamSize()];
+		this.Team = new LinkedList();
 	}
 	
 	// copy constructor
@@ -27,10 +27,12 @@ public class Manager extends HotelEmployee implements Serializable {
 		this.setManageDept(Original.getManagerDept());
 		this.setTeamSize(Original.getTeamSize());
 		this.numOfEmployees = Original.numOfEmployees;
-		Team = new HotelEmployee[this.getTeamSize()];
+		this.Team = new LinkedList();
 		
-		for(int i = 0; i < this.Team.length ; i++) {
-			this.Team[i] = Original.Team[i];
+		Node current = Original.Team.getHead();
+		while(current!=null) {
+			this.Team.insertAtBack(current);
+			current = current.next;
 		}
 	}
 	
@@ -43,11 +45,12 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * 
 		 * Returns : boolean
 		 * */
-		for(int i = 0; i < this.getNumOfEmployees() ; i++) {
-			if(this.Team[i].Equals(employee))
+		Node current = this.Team.getHead();
+		while(current!=null) {
+			if(((HotelEmployee) current.data).Equals(employee))
 				return true;
+			current = current.next;
 		}
-		
 		return false;
 	}
 	// setters
@@ -86,6 +89,10 @@ public class Manager extends HotelEmployee implements Serializable {
 		return this.TeamSize;
 	}
 	
+	public LinkedList getTeam() {
+		return this.Team;
+	}
+	
 	// class related methods
 	
 	public int searchEmployee(HotelEmployee Employee) {
@@ -98,9 +105,13 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * Returns : int
 		 * ----------------------------------------
 		 * */
-		for(int i = 0; i < this.getNumOfEmployees() ; i++) {
-			if(this.Team[i].Equals(Employee))
-				return i;
+		Node current = this.Team.getHead();
+		int index = 0;
+		while(current != null) {
+			if(((HotelEmployee) current.data).Equals(Employee))
+				return index;
+			current = current.next;
+			index++;
 		}
 		
 		throw new IllegalArgumentException("not found!");
@@ -116,24 +127,31 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
+		Node current = this.Team.getHead();
+		int index = 0;
 		boolean found = false;
-		for(int i = 0; i < this.getNumOfEmployees();i++) {
-			
-			if(this.Team[i].Equals(Employee)) {
-				this.Team[i] = this.Team[this.numOfEmployees - 1];
-				this.Team[this.numOfEmployees - 1] = null;
-				this.numOfEmployees--;
-				found = true;
-				System.out.println("Employee Removed!");
-				break;
+		while(current != null) {
+			if(((HotelEmployee) current.data).Equals(Employee)) {
+				try {
+					this.Team.removeAtIndex(index);
+					found = true;
+					System.out.println("Employee Removed from team!");
+					break;
+				}
+				
+				catch(Exception e) {
+					System.out.println("Error removing from team: " + e.getMessage());
+				}
+				
 			}
+			current = current.next;
+			index++;
 		}
-		
 		if(!found)
-			System.out.println("Employee not found!");
+			System.out.println("Employee not found in team!");
 	}
 	
-	public void addEmployeeToTeam(HotelEmployee Employee) {
+	public boolean addEmployeeToTeam(HotelEmployee Employee) throws IllegalArgumentException {
 		/*
 		 * ----------------------------------------
 		 * Abstraction : this method adds employee to team
@@ -143,85 +161,33 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
-		if(this.getNumOfEmployees() < this.getTeamSize()) {
+		if(this.Team.size() < this.getTeamSize()) {
+			String dept = this.getManagerDept().toLowerCase();
 			
-			if(this.getManagerDept().equalsIgnoreCase("resturant")){
-				
-				if(Employee instanceof Cook && !this.isDuplicate(Employee)) {
-					this.Team[this.numOfEmployees++] = Employee;
-				}
-				
-				else {
-					if(this.isDuplicate(Employee))
-						throw new IllegalArgumentException("Duplicated Employee");
-					else
-						System.out.println("Employee doesn't belong to this department!");
-				}
-			}
-			
-			else if(this.getManagerDept().equalsIgnoreCase("security")){
-				
-				if(Employee instanceof Security && !this.isDuplicate(Employee)) {
-					this.Team[this.numOfEmployees++] = Employee;
-				}
-				
-				else {
-					if(this.isDuplicate(Employee))
-						throw new IllegalArgumentException("Duplicated Employee");
-					else
-						System.out.println("Employee doesn't belong to this department!");
-				}
-			}
-			
-			else if(this.getManagerDept().equalsIgnoreCase("cleaning")){
-				
-				if(Employee instanceof Cleaner && !this.isDuplicate(Employee)) {
-					this.Team[this.numOfEmployees++] = Employee;
-				}
-				
-				else {
-					if(this.isDuplicate(Employee))
-						throw new IllegalArgumentException("Duplicated Employee");
-					else
-						System.out.println("Employee doesn't belong to this department!");
-				}
-				
-			}
-			
-			else if(this.getManagerDept().equalsIgnoreCase("rooms")){
-				
-				if(Employee instanceof Reciptionest && !this.isDuplicate(Employee)) {
-					this.Team[this.numOfEmployees++] = Employee;
-				}
-				
-				else {
-					if(this.isDuplicate(Employee))
-						throw new IllegalArgumentException("Duplicated Employee");
-					else
-						System.out.println("Employee doesn't belong to this department!");
-				}
-			}
-			
-			else if(this.getManagerDept().equalsIgnoreCase("employees")){
-				
-				if(Employee instanceof Manager && !this.isDuplicate(Employee) ) {
-					this.Team[this.numOfEmployees++] = Employee;
-				}
-				
-				else {
-					if(this.isDuplicate(Employee))
-						throw new IllegalArgumentException("Duplicated Employee");
-					else
-						System.out.println("Employee doesn't belong to this department!");
-				}
-			}
-			
-			else 
-				System.out.println("No related department found");
-			
-			
-			
+			boolean correctDept = false;
+            if(dept.equals("resturant") && Employee instanceof Cook) correctDept = true;
+            else if(dept.equals("security") && Employee instanceof Security) correctDept = true;
+            else if(dept.equals("cleaning") && Employee instanceof Cleaner) correctDept = true;
+            else if(dept.equals("rooms") && Employee instanceof Reciptionest) correctDept = true;
+            else if(dept.equals("employees") && Employee instanceof Manager) correctDept = true;
+            
+            if(correctDept) {
+            	if(!this.isDuplicate(Employee)) {
+            		this.Team.insertAtBack(Employee);
+            		return true;
+            	}
+            	else {
+            		throw new IllegalArgumentException("Duplicated Employee");
+    
+            	}
+            }
+            
+            else {
+            	System.out.println("Team is full");
+            	return false;
+            }
 		}
+		return false;
 		
 		
 	}
@@ -237,14 +203,8 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * Returns : void
 		 * ----------------------------------------
 		 * */
-		for(int i = this.getNumOfEmployees() - 1; i > -1 ; i--) {
-			this.Team[i] = null;
-		}
-		
-		this.numOfEmployees = 0;
-		
-		
-		System.out.println("Team has been unassign");
+		this.Team.clearList();
+		System.out.println("Team has been usassigned");
 	}
 	
 	public boolean inTeam(HotelEmployee employee) {
@@ -257,11 +217,7 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * Returns : boolean
 		 * ----------------------------------------
 		 * */
-		for(int i = 0 ; i < this.getNumOfEmployees() ; i++) {
-			if(this.Team[i].Equals(employee))
-				return true;
-		}
-		return false;
+		return isDuplicate(employee);
 	}
 	
 	public String displayTeam() {
@@ -275,8 +231,13 @@ public class Manager extends HotelEmployee implements Serializable {
 		 * ----------------------------------------
 		 * */
 		String teamInfo = "";
-		for(int i = 0 ; i < this.numOfEmployees ; i++)
-			teamInfo += ("\n Team Member [" + i + "] " + this.Team[i].displayInfo());
+		Node current = this.Team.getHead();
+		int i = 0;
+		while(current!=null) {
+			teamInfo += ("\n Team Member [" + i + "] " + ((HotelEmployee)current.data).displayInfo());
+            current = current.next;
+            i++;
+		}
 		return teamInfo;
 	}
 	
